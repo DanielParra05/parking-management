@@ -85,7 +85,7 @@
 import { ref, defineComponent } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
-export default defineComponent ({
+export default defineComponent({
   name: 'LayoutDefault',
 
   components: {
@@ -95,7 +95,7 @@ export default defineComponent ({
   setup () {
     return {
       leftDrawerOpen: ref(false),
-      app : ref(2)
+      app: ref(2)
     }
   }
 })
