@@ -1,6 +1,11 @@
 <template>
   <q-layout view="lHh Lpr lFf">
   <header-component />
+      <q-btn
+      id="testButton"
+      color="primary"
+      size="xl"
+    >Mensaje</q-btn>
     <q-page-container>
       <hello-world />
     </q-page-container>
