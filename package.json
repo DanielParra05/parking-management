@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start:dev" : "json-server db.json -m ./node_modules/json-server-auth"
+    "start:dev": "json-server db.json -m ./node_modules/json-server-auth"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
@@ -16,6 +16,7 @@
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.19.2",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-eslint": "~4.5.15",
