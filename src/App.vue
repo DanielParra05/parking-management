@@ -1,26 +1,19 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-  <header-component />
-      <q-btn
-      id="testButton"
-      color="primary"
-      size="xl"
-    >Mensaje</q-btn>
-    <q-page-container>
-      <hello-world />
-    </q-page-container>
+      <header-component />
+      <q-page-container>
+        <router-view/>
+      </q-page-container>
   </q-layout>
 </template>
 
 <script lang="ts">
-import { ref, defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import { defineComponent } from 'vue'
 import HeaderComponent from './components/HeaderComponent.vue'
 
 export default defineComponent({
   name: 'LayoutDefault',
   components: {
-    HelloWorld,
     HeaderComponent
   }
 })
