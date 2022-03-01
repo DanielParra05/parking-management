@@ -5,7 +5,7 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   test: {
     environment: 'jsdom', //Se le indica a vitest que debe usar globalmente el jsdom
-    exclude: [...configDefaults.exclude, 'src/tests/e2e/*'],    
+    include: ['src/tests/unit/*'],    
   },
   plugins: [vue()] //Se le indica a vite el uso  de vue
 })
