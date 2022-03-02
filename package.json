@@ -6,12 +6,13 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start:dev": "json-server db.json -m ./node_modules/json-server-auth",
+    "start:back": "json-server db.json -m ./node_modules/json-server-auth",
     "test": "vitest"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
     "@vitejs/plugin-vue": "^2.2.4",
+    "axios": "^0.26.0",
     "jsdom": "^19.0.0",
     "quasar": "^2.0.0",
     "vite": "^2.8.5",

@@ -1,21 +1,21 @@
 {
-  "posts": [
+  "parking-tickets": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "plate": "GKK-550",
+      "entryDate": "2022-01-01 09:39",
+      "outDate": "2022-01-01 09:39",
+      "vehicleType": "Carro"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "plate": "GKK-550",
+      "entryDate": "2022-01-01 09:39",
+      "outDate": "2022-01-01 09:39",
+      "vehicleType": "Carro"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  },
+  "vehicle-types": ["Car", "Motorbike"],
   "users": [
     {
       "email": "olivier@mail.com",
