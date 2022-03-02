@@ -1,7 +1,7 @@
 <template>
-  <q-page class="q-pa-md">
+
 <div class="row justify-center items-start">
-    <button-component :label="buttonName"></button-component>
+    <q-btn color="secondary" label="New entry" size ="lg" @click="goToForm" />
 </div>
 <div class="row flex-center">
    <div class="column" style="height: 250px">
@@ -17,22 +17,18 @@
       </div>
     </div>
 </div>
-
-  </q-page>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import ButtonComponent from '../components/ButtonComponent.vue'
 
 export default defineComponent({
   name: 'Home',
   components: {
-    ButtonComponent
+
   },
   data  () {
     return {
-      buttonName: 'Test',
       columns: [
         { name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true },
         { name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true },
@@ -75,6 +71,11 @@ export default defineComponent({
         }
       ]
 
+    }
+  },
+  methods: {
+    goToForm () {
+      this.$router.push({ name: 'parking-form' })
     }
   }
 })

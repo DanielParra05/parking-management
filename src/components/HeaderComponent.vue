@@ -2,9 +2,13 @@
       <q-header elevated>
         <q-toolbar>
           <q-avatar>
-            <q-icon name="local_parking" size="md"/>
+          <router-link to="/">
+            <q-icon name="local_parking" size="md" style="background-color: white;"/>
+          </router-link>
           </q-avatar>
-          <q-toolbar-title>Parking Management</q-toolbar-title>
+          <q-toolbar-title>
+          Parking Management
+          </q-toolbar-title>
         </q-toolbar>
       </q-header>
 </template>
