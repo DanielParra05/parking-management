@@ -5,14 +5,16 @@
       "plate": "GKK-550",
       "entryDate": "2022-01-01 09:39",
       "outDate": "2022-01-01 09:39",
-      "vehicleType": "Carro"
+      "vehicleType": "Car",
+      "charge":  50000
     },
     {
       "id": 2,
       "plate": "GKK-550",
       "entryDate": "2022-01-01 09:39",
       "outDate": "2022-01-01 09:39",
-      "vehicleType": "Carro"
+      "vehicleType": "Car",
+      "charge":  50000
     },
     {
       "vehicleType": "Motorbike",
@@ -36,7 +38,8 @@
       "vehicleType": "Car",
       "plate": "GKK550",
       "id": 4,
-      "entryDate": "2022-03-02T20:32:41.500Z"
+      "entryDate": "2022-03-02T20:32:41.500Z",
+      "charge":  50000
     },
     {
       "vehicleType": "Car",

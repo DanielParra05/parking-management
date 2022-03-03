@@ -15,12 +15,28 @@
       <q-td :props="props">
         <div>
           <q-btn
+            :disabled="isTicketClosed(`${props.value}`)"
             @click="generateFinalTicket(`${props.value}`)"
             round
             color="secondary"
             icon="exit_to_app"
           />
         </div>
+      </q-td>
+    </template>
+
+    <template v-slot:body-cell-charge="props">
+      <q-td :props="props">
+        {{
+          props.value
+            ? "$" + new Intl.NumberFormat("es-CO").format(props.value)
+            : "--"
+        }}
+      </q-td>
+    </template>
+    <template v-slot:body-cell-leaveDate="props">
+      <q-td :props="props">
+        {{ props.value ? props.value : "--" }}
       </q-td>
     </template>
   </q-table>
@@ -95,6 +111,11 @@ export default defineComponent({
     },
     getByIdFromTickets(id: number): ParkingTicket | undefined {
       return this.parkingTicketsList?.find((ticket) => ticket.id == id);
+    },
+    isTicketClosed(id: number) {
+      var parkingTicket: ParkingTicket | undefined =
+        this.getByIdFromTickets(id);
+      return parkingTicket && parkingTicket.charge && parkingTicket.charge > 0;
     },
   },
 });
