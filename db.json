@@ -13,9 +13,36 @@
       "entryDate": "2022-01-01 09:39",
       "outDate": "2022-01-01 09:39",
       "vehicleType": "Carro"
+    },
+    {
+      "vehicleType": "Motorbike",
+      "plate": "IUM16D",
+      "id": 65,
+      "entryDate": "2022-03-02T20:22:55.968Z"
+    },
+    {
+      "vehicleType": "Car",
+      "plate": "GKK254",
+      "id": 85,
+      "entryDate": "2022-03-02T20:28:49.997Z"
+    },
+    {
+      "vehicleType": "Motorbike",
+      "plate": "IUM16D",
+      "id": 73,
+      "entryDate": "2022-03-02T20:30:44.996Z"
+    },
+    {
+      "vehicleType": "Car",
+      "plate": "GKK550",
+      "id": 4,
+      "entryDate": "2022-03-02T20:32:41.500Z"
     }
   ],
-  "vehicle-types": ["Car", "Motorbike"],
+  "vehicle-types": [
+    "Car",
+    "Motorbike"
+  ],
   "users": [
     {
       "email": "olivier@mail.com",
