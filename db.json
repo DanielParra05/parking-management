@@ -37,6 +37,30 @@
       "plate": "GKK550",
       "id": 4,
       "entryDate": "2022-03-02T20:32:41.500Z"
+    },
+    {
+      "vehicleType": "Car",
+      "plate": "gkk550",
+      "id": 89,
+      "entryDate": "2022-03-03T01:15:25.365Z"
+    },
+    {
+      "vehicleType": "Car",
+      "plate": "GKK550",
+      "id": 10,
+      "entryDate": "2022-03-03T03:19:41.155Z"
+    },
+    {
+      "vehicleType": "Motorbike",
+      "plate": "ium16d",
+      "id": 38,
+      "entryDate": "2022-03-03T03:27:53.564Z"
+    },
+    {
+      "vehicleType": "Car 🚗",
+      "plate": "ium16d",
+      "id": 87,
+      "entryDate": "2022-03-03T04:05:41.343Z"
     }
   ],
   "vehicle-types": [

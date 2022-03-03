@@ -10,7 +10,7 @@
           />
         </router-link>
       </q-avatar>
-      <q-toolbar-title> Titulo {{ $store.state.appName }} </q-toolbar-title>
+      <q-toolbar-title> {{ $store.state.appName }} </q-toolbar-title>
     </q-toolbar>
   </q-header>
 </template>

@@ -3,22 +3,20 @@ import ParkingTicket from './types/ParkingTicket'
 
 const url = 'http://localhost:3000'
 
-function getVehiclesType () {
-  return Axios.get<string[]>(`${url}/vehicle-types`).then((response) => (response.data))
+function getVehiclesType(): Promise<String[]> {
+  return Axios.get<string[]>(`${url}/vehicle-types`).then((response) => (response.data));
 }
 
-function createParkingTicket (parkingTicket : ParkingTicket) {
-  Axios.post<ParkingTicket>(`${url}/parking-tickets`, parkingTicket)
+function createParkingTicket(parkingTicket: ParkingTicket) {
+  Axios.post<ParkingTicket>(`${url}/parking-tickets`, parkingTicket);
 }
-/*
-function getParkingTickets (): ParkingTicket[] {
-    const types: ParkingTicket[] = new Array<ParkingTicket>()
-    Axios.get<ParkingTicket[]>(`${url}/parking-tickets`).then((response) => (response.data) = types)
-    return types
+
+function getParkingTickets(): Promise<ParkingTicket[]> {
+  return Axios.get<ParkingTicket[]>(`${url}/parking-tickets`).then((response) => (response.data));
 }
-*/
 
 export default {
   getVehiclesType,
-  createParkingTicket
+  createParkingTicket,
+  getParkingTickets
 }

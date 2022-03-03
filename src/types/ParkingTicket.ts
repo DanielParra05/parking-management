@@ -2,8 +2,9 @@ interface ParkingTicket {
     id: number,
     plate: string,
     entryDate: Date,
-    outDate: Date,
+    leaveDate: Date,
     vehicleType: string
+    charge: number
 }
 
 export default ParkingTicket
