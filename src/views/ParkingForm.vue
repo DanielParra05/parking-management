@@ -55,7 +55,7 @@ export default defineComponent({
   data() {
     return {
       parkingTicket: {} as ParkingTicket,
-      vehicleTypes: new Array<String>(),
+      vehicleTypes: new Array<string>(),
     };
   },
   created() {

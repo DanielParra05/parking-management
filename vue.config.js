@@ -2,11 +2,9 @@ module.exports = {
   lintOnSave: true,
   pluginOptions: {
     quasar: {
-      importStrategy: 'kebab',
-      rtlSupport: false
-    }
+      importStrategy: "kebab",
+      rtlSupport: false,
+    },
   },
-  transpileDependencies: [
-    'quasar'
-  ]
-}
+  transpileDependencies: ["quasar"],
+};

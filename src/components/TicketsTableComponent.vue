@@ -110,12 +110,17 @@ export default defineComponent({
       console.log(id);
     },
     getByIdFromTickets(id: number): ParkingTicket | undefined {
-      return this.parkingTicketsList?.find((ticket) => ticket.id == id);
+      return this.parkingTicketsList?.find((ticket) => {
+        ticket.id === id;
+      });
     },
     isTicketClosed(id: number) {
-      var parkingTicket: ParkingTicket | undefined =
+      const parkingTicket: ParkingTicket | undefined =
         this.getByIdFromTickets(id);
-      return parkingTicket && parkingTicket.charge && parkingTicket.charge > 0;
+      if (parkingTicket && parkingTicket.charge && parkingTicket.charge > 0) {
+        return true;
+      }
+      return false;
     },
   },
 });
