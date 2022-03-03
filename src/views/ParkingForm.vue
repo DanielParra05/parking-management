@@ -20,6 +20,7 @@
         </div>
         <div class="col-6" style="padding: 1%">
           <q-input
+            style="text-transform: uppercase"
             v-model="parkingTicket.plate"
             rounded
             outlined
@@ -71,7 +72,8 @@ export default defineComponent({
     },
     createParkingTicket() {
       this.parkingTicket.id = Math.floor(Math.random() * 100);
-      this.parkingTicket.entryDate = new Date();
+      this.parkingTicket.entryDate = new Date().toString();
+      this.parkingTicket.plate = this.parkingTicket.plate.toUpperCase();
       ApiConsumer.createParkingTicket(this.parkingTicket as ParkingTicket);
       this.parkingTicket = {} as ParkingTicket;
       this.$router.push({ name: "Home" });

@@ -1,8 +1,8 @@
 interface ParkingTicket {
   id: number;
   plate: string;
-  entryDate: Date;
-  leaveDate: Date;
+  entryDate: string;
+  leaveDate: string;
   vehicleType: string;
   charge: number;
 }

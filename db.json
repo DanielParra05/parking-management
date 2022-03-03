@@ -1,73 +1,38 @@
 {
   "parking-tickets": [
     {
-      "id": 1,
-      "plate": "GKK-550",
-      "entryDate": "2022-01-01 09:39",
-      "outDate": "2022-01-01 09:39",
-      "vehicleType": "Car",
-      "charge":  50000
-    },
-    {
-      "id": 2,
-      "plate": "GKK-550",
-      "entryDate": "2022-01-01 09:39",
-      "outDate": "2022-01-01 09:39",
-      "vehicleType": "Car",
-      "charge":  50000
-    },
-    {
       "vehicleType": "Motorbike",
-      "plate": "IUM16D",
-      "id": 65,
-      "entryDate": "2022-03-02T20:22:55.968Z"
-    },
-    {
-      "vehicleType": "Car",
-      "plate": "GKK254",
-      "id": 85,
-      "entryDate": "2022-03-02T20:28:49.997Z"
-    },
-    {
-      "vehicleType": "Motorbike",
-      "plate": "IUM16D",
-      "id": 73,
-      "entryDate": "2022-03-02T20:30:44.996Z"
-    },
-    {
-      "vehicleType": "Car",
-      "plate": "GKK550",
-      "id": 4,
-      "entryDate": "2022-03-02T20:32:41.500Z",
-      "charge":  50000
+      "plate": "ium13e",
+      "id": 42,
+      "entryDate": "Thu Mar 02 2022 13:40:23 GMT-0500 (Colombia Standard Time)"
     },
     {
       "vehicleType": "Car",
       "plate": "gkk550",
-      "id": 89,
-      "entryDate": "2022-03-03T01:15:25.365Z"
+      "id": 56,
+      "entryDate": "Thu Mar 03 2022 11:17:28 GMT-0500 (Colombia Standard Time)"
     },
     {
       "vehicleType": "Car",
-      "plate": "GKK550",
-      "id": 10,
-      "entryDate": "2022-03-03T03:19:41.155Z"
+      "plate": "gkk550",
+      "id": 29,
+      "entryDate": "Thu Mar 03 2022 09:17:41 GMT-0500 (Colombia Standard Time)"
     },
     {
       "vehicleType": "Motorbike",
-      "plate": "ium16d",
-      "id": 38,
-      "entryDate": "2022-03-03T03:27:53.564Z"
+      "plate": "IUM16D",
+      "id": 49,
+      "entryDate": "Thu Mar 03 2022 16:42:57 GMT-0500 (Colombia Standard Time)"
     },
     {
-      "vehicleType": "Car 🚗",
-      "plate": "ium16d",
-      "id": 87,
-      "entryDate": "2022-03-03T04:05:41.343Z"
+      "plate": "FGHJ",
+      "vehicleType": "Motorbike",
+      "id": 61,
+      "entryDate": "Thu Mar 03 2022 16:45:31 GMT-0500 (Colombia Standard Time)"
     }
   ],
-  "car-spots":[],
-  "bike-spots":[],
+  "car-spots": [],
+  "bike-spots": [],
   "vehicle-types": [
     "Car",
     "Motorbike"

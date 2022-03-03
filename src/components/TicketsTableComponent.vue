@@ -42,11 +42,11 @@
   </q-table>
 
   <dialog-component
-    :title="`Ticket closed successfully`"
-    :message="`Mesg con datos del tiquete`"
-    :alert="alert"
-    :type="`success`"
-    @ok-click="alert = false"
+    :title="dialogTitle"
+    :message="dialogBodyMessage"
+    :alert="dialogVisible"
+    :type="dialogType"
+    @ok-click="dialogVisible = false"
   />
 </template>
 
@@ -65,7 +65,16 @@ export default defineComponent({
   components: { DialogComponent },
   data() {
     return {
-      alert: false,
+      dialogVisible: false,
+      dialogBodyMessage: "",
+      dialogType: "",
+      dialogTitle: "",
+      prices: new Map<string, number>([
+        ["CarHour", 1000],
+        ["MotorbikeHour", 500],
+        ["CarDay", 8000],
+        ["MotorbikeDay", 4000],
+      ]),
       tableColumns: [
         {
           name: "vehicleType",
@@ -98,8 +107,88 @@ export default defineComponent({
   },
   methods: {
     generateFinalTicket(id: string) {
-      this.alert = true;
-      console.log(id);
+      const parkingTicket: ParkingTicket | undefined = this.getByIdFromTickets(
+        parseInt(id)
+      );
+      if (parkingTicket) {
+        parkingTicket.leaveDate = new Date().toString();
+        parkingTicket.charge = this.calculateFinalPrice(parkingTicket);
+        this.showDialog(
+          `The ticket with plate ${
+            parkingTicket.plate
+          } was closed successfully. Final amount to charge: $${new Intl.NumberFormat(
+            "es-CO"
+          ).format(parkingTicket.charge)}`,
+          "success",
+          "Ticket closed successfully"
+        );
+      } else {
+        this.showDialog(
+          "Error",
+          "error",
+          "There was an error. Try again later, please :'v"
+        );
+      }
+    },
+    showDialog(
+      dialogBodyMessage: string,
+      dialogType: string,
+      dialogTitle: string
+    ): void {
+      this.dialogBodyMessage = dialogBodyMessage;
+      this.dialogType = dialogType;
+      this.dialogTitle = dialogTitle;
+      this.dialogVisible = true;
+    },
+    calculateFinalPrice(parkingTicket: ParkingTicket): number {
+      const hours: number =
+        Math.abs(
+          Date.parse(parkingTicket.leaveDate).valueOf() -
+            Date.parse(parkingTicket.entryDate).valueOf()
+        ) / 36e5;
+      const priceDay: number | undefined = this.prices.get(
+        parkingTicket.vehicleType + "Day"
+      );
+      const priceHour: number | undefined = this.prices.get(
+        parkingTicket.vehicleType + "Hour"
+      );
+      if (priceDay !== undefined && priceHour !== undefined) {
+        return this.calculateCharge(Math.ceil(hours), priceHour, priceDay, 0);
+      }
+      return 0;
+    },
+    calculateCharge(
+      hours: number,
+      priceHour: number,
+      priceDay: number,
+      accumulatedCharge: number
+    ): number {
+      console.log("Hours -->" + hours);
+      var totalDays: number = 0;
+      if (hours >= 24) {
+        totalDays = Math.floor(hours / 24);
+        accumulatedCharge += totalDays * priceDay;
+        hours = hours - totalDays * 24;
+        return this.calculateCharge(
+          hours,
+          priceHour,
+          priceDay,
+          accumulatedCharge
+        );
+      } else if (hours >= 8) {
+        totalDays = Math.floor(hours / 8);
+        hours = hours - totalDays * 8;
+        accumulatedCharge += totalDays * priceDay;
+        return this.calculateCharge(
+          hours,
+          priceHour,
+          priceDay,
+          accumulatedCharge
+        );
+      } else {
+        accumulatedCharge += priceHour * hours;
+        return Math.floor(accumulatedCharge);
+      }
     },
     getByIdFromTickets(id: number): ParkingTicket | undefined {
       // eslint-disable-next-line
@@ -114,8 +203,3 @@ export default defineComponent({
   },
 });
 </script>
-<style>
-th {
-  font-size: 100%;
-}
-</style>
