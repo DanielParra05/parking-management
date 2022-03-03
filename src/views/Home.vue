@@ -1,13 +1,20 @@
 <template>
-  <div class="row justify-center items-start">
-    <q-btn color="secondary" label="New ticket" size="lg" @click="goToForm()" />
-  </div>
-  <div class="flex-center" style="padding: 1.5%">
-    <tickets-table-component
-      :tableTitle="`Tickets Summary 🎟️`"
-      :parkingTicketsList="parkingTicketsList"
-    ></tickets-table-component>
-  </div>
+  <q-page class="q-pa-md">
+    <div class="row justify-center items-start">
+      <q-btn
+        color="secondary"
+        label="New ticket"
+        size="lg"
+        @click="goToForm()"
+      />
+    </div>
+    <div class="flex-center" style="padding: 1.5%">
+      <tickets-table-component
+        :tableTitle="`Tickets Summary 🎟️`"
+        :parkingTicketsList="parkingTicketsList"
+      ></tickets-table-component>
+    </div>
+  </q-page>
 </template>
 
 <script lang="ts">

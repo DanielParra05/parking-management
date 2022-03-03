@@ -1,54 +1,56 @@
 <template>
-  <q-card class="my-card">
-    <q-card-section class="bg-grey-8 text-white">
-      <div class="row">
-        <q-icon name="garage" size="md" />
-        <div class="text-h6">Vehicle Entry</div>
-      </div>
-    </q-card-section>
-    <q-card-actions vertical style="padding-bottom: 1.5%">
-      <q-form @submit="createParkingTicket">
+  <q-page class="q-pa-md">
+    <q-card class="my-card">
+      <q-card-section class="bg-grey-8 text-white">
         <div class="row">
-          <div class="col-6" style="padding: 1%">
-            <q-select
-              v-model="parkingTicket.vehicleType"
-              rounded
-              outlined
-              label="Vehicle type"
-              :options="vehicleTypes"
-              :rules="[(val) => !!val || 'Field is required']"
-            />
-          </div>
-          <div class="col-6" style="padding: 1%">
-            <q-input
-              style="text-transform: uppercase"
-              v-model="parkingTicket.plate"
-              rounded
-              outlined
-              label="Vehicle plate"
-              :rules="[
-                (val) => validatePlate(val) || 'Invalid plate',
-                (val) => !!val || 'Field is required',
-              ]"
-            />
-          </div>
+          <q-icon name="garage" size="md" />
+          <div class="text-h6">Vehicle Entry</div>
         </div>
-        <div class="row" align="center" style="padding-bottom: 3%">
-          <div class="col">
-            <q-btn color="primary" label="Save" size="md" type="submit" />
+      </q-card-section>
+      <q-card-actions vertical style="padding-bottom: 1.5%">
+        <q-form @submit="createParkingTicket">
+          <div class="row">
+            <div class="col-6" style="padding: 1%">
+              <q-select
+                v-model="parkingTicket.vehicleType"
+                rounded
+                outlined
+                label="Vehicle type"
+                :options="vehicleTypes"
+                :rules="[(val) => !!val || 'Field is required']"
+              />
+            </div>
+            <div class="col-6" style="padding: 1%">
+              <q-input
+                style="text-transform: uppercase"
+                v-model="parkingTicket.plate"
+                rounded
+                outlined
+                label="Vehicle plate"
+                :rules="[
+                  (val) => validatePlate(val) || 'Invalid plate',
+                  (val) => !!val || 'Field is required',
+                ]"
+              />
+            </div>
           </div>
-        </div>
-      </q-form>
-    </q-card-actions>
-  </q-card>
+          <div class="row" align="center" style="padding-bottom: 3%">
+            <div class="col">
+              <q-btn color="primary" label="Save" size="md" type="submit" />
+            </div>
+          </div>
+        </q-form>
+      </q-card-actions>
+    </q-card>
 
-  <dialog-component
-    :title="dialogTitle"
-    :message="dialogBodyMessage"
-    :alert="dialogVisible"
-    :type="dialogType"
-    @ok-click="dialogVisible = false"
-  />
+    <dialog-component
+      :title="dialogTitle"
+      :message="dialogBodyMessage"
+      :alert="dialogVisible"
+      :type="dialogType"
+      @ok-click="dialogVisible = false"
+    />
+  </q-page>
 </template>
 
 <script lang="ts">

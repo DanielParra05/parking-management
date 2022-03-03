@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import ParkingForm from "../views/ParkingForm.vue";
+import Login from "../views/Login.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -13,6 +14,11 @@ const routes: Array<RouteRecordRaw> = [
     name: "parking-form",
     component: ParkingForm,
   },
+  {
+    path: "/login",
+    name: "login",
+    component: Login,
+  }
 ];
 
 const router = createRouter({
