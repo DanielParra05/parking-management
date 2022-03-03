@@ -66,6 +66,8 @@
       "entryDate": "2022-03-03T04:05:41.343Z"
     }
   ],
+  "car-spots":[],
+  "bike-spots":[],
   "vehicle-types": [
     "Car",
     "Motorbike"

@@ -7,5 +7,7 @@ export default createStore({
   mutations: {},
   actions: {},
   modules: {},
-  getters: {},
+  getters: {
+    getCurrentPlate: (state) => state.appName,
+  },
 });

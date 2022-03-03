@@ -14,3 +14,19 @@
     </q-toolbar>
   </q-header>
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  data() {
+    return {
+      alert: false,
+    };
+  },
+  methods: {},
+  created() {
+    console.log(this.$store.getters.getCurrentPlate);
+  },
+});
+</script>

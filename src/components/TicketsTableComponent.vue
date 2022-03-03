@@ -41,28 +41,19 @@
     </template>
   </q-table>
 
-  <q-dialog v-model="alert">
-    <q-card>
-      <q-card-section>
-        <div class="text-h6">Generate end ticket</div>
-      </q-card-section>
-
-      <q-card-section class="q-pt-none">
-        Are you sure to make the exit of the parking ticket with a license
-        plate?
-      </q-card-section>
-
-      <q-card-actions align="right">
-        <q-btn label="Cancel" color="negative" v-close-popup />
-        <q-btn label="OK" color="positive" v-close-popup />
-      </q-card-actions>
-    </q-card>
-  </q-dialog>
+  <dialog-component
+    :title="`Ticket closed successfully`"
+    :message="`Mesg con datos del tiquete`"
+    :alert="alert"
+    :type="`success`"
+    @ok-click="alert = false"
+  />
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import ParkingTicket from "../types/ParkingTicket";
+import DialogComponent from "./DialogComponent.vue";
 
 export default defineComponent({
   name: "TicketsTableComponent",
@@ -71,6 +62,7 @@ export default defineComponent({
     parkingTicketsList: Array as PropType<Array<ParkingTicket>>,
     tableTitle: String,
   },
+  components: { DialogComponent },
   data() {
     return {
       alert: false,
@@ -105,22 +97,19 @@ export default defineComponent({
     };
   },
   methods: {
-    generateFinalTicket(id: number) {
+    generateFinalTicket(id: string) {
       this.alert = true;
       console.log(id);
     },
     getByIdFromTickets(id: number): ParkingTicket | undefined {
-      return this.parkingTicketsList?.find((ticket) => {
-        ticket.id === id;
-      });
+      // eslint-disable-next-line
+      return this.parkingTicketsList?.find((ticket) => id == ticket.id);
     },
-    isTicketClosed(id: number) {
-      const parkingTicket: ParkingTicket | undefined =
-        this.getByIdFromTickets(id);
-      if (parkingTicket && parkingTicket.charge && parkingTicket.charge > 0) {
-        return true;
-      }
-      return false;
+    isTicketClosed(id: string) {
+      const parkingTicket: ParkingTicket | undefined = this.getByIdFromTickets(
+        parseInt(id)
+      );
+      return parkingTicket && parkingTicket.charge && parkingTicket.charge > 0;
     },
   },
 });
