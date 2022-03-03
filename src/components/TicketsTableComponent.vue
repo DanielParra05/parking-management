@@ -54,6 +54,7 @@
 import { defineComponent, PropType } from "vue";
 import ParkingTicket from "../types/ParkingTicket";
 import DialogComponent from "./DialogComponent.vue";
+import ApiConsumer from "../ApiConsumer";
 
 export default defineComponent({
   name: "TicketsTableComponent",
@@ -113,6 +114,7 @@ export default defineComponent({
       if (parkingTicket) {
         parkingTicket.leaveDate = new Date().toString();
         parkingTicket.charge = this.calculateFinalPrice(parkingTicket);
+        ApiConsumer.updateParkingTicket(parkingTicket);
         this.showDialog(
           `The ticket with plate ${
             parkingTicket.plate
