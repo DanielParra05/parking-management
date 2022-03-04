@@ -23,9 +23,34 @@ function getParkingTickets(): Promise<ParkingTicket[]> {
   );
 }
 
+function getCarSpots(): ParkingTicket[] {
+  console.log("Get Car Spots")
+  var carSpots: ParkingTicket[] = new Array<ParkingTicket>();
+  Axios.get<ParkingTicket[]>(`${url}/car-spots`).then(
+    (response) => carSpots = response.data
+  );
+  return carSpots;
+}
+
+function pushCarSpot(parkingTicket: ParkingTicket): void {
+  console.log("pushCarSpot")
+  Axios.post<ParkingTicket>(`${url}/car-spots`, parkingTicket);
+}
+
+function getBikeSpots(): ParkingTicket[] {
+  var bikeSpots: ParkingTicket[] = new Array<ParkingTicket>();
+  Axios.get<ParkingTicket[]>(`${url}/bike-spots`).then(
+    (response) => bikeSpots = response.data
+  );
+  return bikeSpots;
+}
+
 export default {
   getVehiclesType,
   createParkingTicket,
   getParkingTickets,
-  updateParkingTicket
+  updateParkingTicket,
+  getCarSpots,
+  getBikeSpots,
+  pushCarSpot
 };

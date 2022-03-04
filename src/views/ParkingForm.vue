@@ -89,6 +89,7 @@ export default defineComponent({
       this.parkingTicket.entryDate = new Date().toString();
       this.parkingTicket.plate = this.parkingTicket.plate.toUpperCase();
       ApiConsumer.createParkingTicket(this.parkingTicket as ParkingTicket);
+      this.$store.commit("fillCarSpot", this.parkingTicket as ParkingTicket);
       this.dialogBodyMessage = `Parking ticket with plate ${this.parkingTicket.plate} was created.`;
       this.dialogType = "success";
       this.dialogTitle = "Ticket created!";

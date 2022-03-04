@@ -45,9 +45,22 @@
       "plate": "IUM12E",
       "id": 28,
       "entryDate": "Thu Mar 03 2022 17:54:45 GMT-0500 (Colombia Standard Time)"
+    },
+    {
+      "vehicleType": "Car",
+      "plate": "HJK123",
+      "id": 18,
+      "entryDate": "Fri Mar 04 2022 00:13:48 GMT-0500 (Colombia Standard Time)"
     }
   ],
-  "car-spots": [],
+  "car-spots": [
+    {
+      "vehicleType": "Car",
+      "plate": "HJK123",
+      "id": 18,
+      "entryDate": "Fri Mar 04 2022 00:13:48 GMT-0500 (Colombia Standard Time)"
+    }
+  ],
   "bike-spots": [],
   "vehicle-types": [
     "Car",
