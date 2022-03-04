@@ -34,6 +34,9 @@ export default createStore({
     },
     fillAuthenticationToken(state, token: string) {
       state.authenticationToken = token;
+    },
+    removeToken(state) {
+      state.authenticationToken = "";
     }
   },
   actions: {},

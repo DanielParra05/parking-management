@@ -10,62 +10,6 @@
     },
     {
       "vehicleType": "Motorbike",
-      "plate": "WER34G",
-      "id": 58,
-      "entryDate": "Fri Mar 04 2022 09:39:29 GMT-0500 (Colombia Standard Time)",
-      "leaveDate": "Fri Mar 04 2022 09:46:43 GMT-0500 (Colombia Standard Time)",
-      "charge": 500
-    },
-    {
-      "vehicleType": "Motorbike",
-      "plate": "GHJ23E",
-      "id": 6,
-      "entryDate": "Fri Mar 04 2022 09:39:37 GMT-0500 (Colombia Standard Time)",
-      "leaveDate": "Fri Mar 04 2022 09:49:49 GMT-0500 (Colombia Standard Time)",
-      "charge": 500
-    },
-    {
-      "vehicleType": "Motorbike",
-      "plate": "DFG45H",
-      "id": 60,
-      "entryDate": "Fri Mar 04 2022 09:39:53 GMT-0500 (Colombia Standard Time)",
-      "leaveDate": "Fri Mar 04 2022 09:48:58 GMT-0500 (Colombia Standard Time)",
-      "charge": 500
-    },
-    {
-      "vehicleType": "Motorbike",
-      "plate": "FGH45H",
-      "id": 93,
-      "entryDate": "Fri Mar 04 2022 09:40:00 GMT-0500 (Colombia Standard Time)",
-      "leaveDate": "Fri Mar 04 2022 09:51:08 GMT-0500 (Colombia Standard Time)",
-      "charge": 500
-    },
-    {
-      "vehicleType": "Motorbike",
-      "plate": "DFG45K",
-      "id": 49,
-      "entryDate": "Fri Mar 04 2022 09:40:08 GMT-0500 (Colombia Standard Time)",
-      "leaveDate": "Fri Mar 04 2022 17:01:39 GMT-0500 (Colombia Standard Time)",
-      "charge": 4000
-    },
-    {
-      "vehicleType": "Motorbike",
-      "plate": "LKJ98O",
-      "id": 59,
-      "entryDate": "Fri Mar 04 2022 09:40:30 GMT-0500 (Colombia Standard Time)",
-      "leaveDate": "Fri Mar 04 2022 11:21:23 GMT-0500 (Colombia Standard Time)",
-      "charge": 1000
-    },
-    {
-      "vehicleType": "Motorbike",
-      "plate": "FDS43Y",
-      "id": 77,
-      "entryDate": "Fri Mar 04 2022 09:40:42 GMT-0500 (Colombia Standard Time)",
-      "leaveDate": "Fri Mar 04 2022 17:01:42 GMT-0500 (Colombia Standard Time)",
-      "charge": 4000
-    },
-    {
-      "vehicleType": "Motorbike",
       "plate": "FDS43H",
       "id": 14,
       "entryDate": "Fri Mar 04 2022 09:40:52 GMT-0500 (Colombia Standard Time)",
@@ -73,58 +17,21 @@
       "charge": 2000
     },
     {
-      "vehicleType": "Motorbike",
-      "plate": "WER43Y",
-      "id": 23,
-      "entryDate": "Fri Mar 04 2022 09:41:01 GMT-0500 (Colombia Standard Time)"
-    },
-    {
       "vehicleType": "Car",
-      "plate": "GKK550",
-      "id": 42,
-      "entryDate": "Fri Mar 04 2022 09:45:00 GMT-0500 (Colombia Standard Time)"
+      "plate": "GHH456",
+      "id": 79,
+      "entryDate": "Fri Mar 04 2022 17:31:50 GMT-0500 (Colombia Standard Time)"
     }
   ],
   "car-spots": [
     {
       "vehicleType": "Car",
-      "plate": "GKK550",
-      "id": 42,
-      "entryDate": "Fri Mar 04 2022 09:45:00 GMT-0500 (Colombia Standard Time)"
+      "plate": "GHH456",
+      "id": 79,
+      "entryDate": "Fri Mar 04 2022 17:31:50 GMT-0500 (Colombia Standard Time)"
     }
   ],
-  "bike-spots": [
-    {
-      "vehicleType": "Motorbike",
-      "plate": "WER34G",
-      "id": 58,
-      "entryDate": "Fri Mar 04 2022 09:39:29 GMT-0500 (Colombia Standard Time)"
-    },
-    {
-      "vehicleType": "Motorbike",
-      "plate": "GHJ23E",
-      "id": 6,
-      "entryDate": "Fri Mar 04 2022 09:39:37 GMT-0500 (Colombia Standard Time)"
-    },
-    {
-      "vehicleType": "Motorbike",
-      "plate": "DFG45H",
-      "id": 60,
-      "entryDate": "Fri Mar 04 2022 09:39:53 GMT-0500 (Colombia Standard Time)"
-    },
-    {
-      "vehicleType": "Motorbike",
-      "plate": "WER43Y",
-      "id": 23,
-      "entryDate": "Fri Mar 04 2022 09:41:01 GMT-0500 (Colombia Standard Time)"
-    },
-    {
-      "vehicleType": "Motorbike",
-      "plate": "QWE12E",
-      "id": 22,
-      "entryDate": "Fri Mar 04 2022 11:21:49 GMT-0500 (Colombia Standard Time)"
-    }
-  ],
+  "bike-spots": [],
   "vehicle-types": [
     "Car",
     "Motorbike"
