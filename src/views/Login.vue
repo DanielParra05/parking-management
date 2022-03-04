@@ -9,15 +9,14 @@
             </h4>
             <h4 class="text-h5 text-white q-my-md text-center">🚗🚧🛵</h4>
           </q-card-section>
-          <q-card-section>
-            <q-form class="q-px-sm q-pt-lg">
+          <q-form @submit="login" class="q-px-sm q-pt-lg">
+            <q-card-section>
               <q-input
-                ref="email"
                 square
                 clearable
                 v-model="email"
-                type="email"
                 label="Email"
+                :rules="[(val:string) => !!val || 'Field is required']"
               >
                 <template v-slot:prepend>
                   <q-icon name="email" />
@@ -25,28 +24,29 @@
               </q-input>
               <q-input
                 type="password"
-                ref="password"
                 square
                 clearable
                 v-model="password"
                 label="Password"
+                :rules="[(val:string) => !!val || 'Field is required']"
               >
                 <template v-slot:prepend>
                   <q-icon name="lock" />
                 </template>
               </q-input>
-            </q-form>
-          </q-card-section>
+            </q-card-section>
 
-          <q-card-actions class="q-px-lg">
-            <q-btn
-              unelevated
-              size="lg"
-              color="secondary"
-              class="full-width text-white"
-              label="Log in"
-            />
-          </q-card-actions>
+            <q-card-actions class="q-px-lg">
+              <q-btn
+                unelevated
+                size="md"
+                color="secondary"
+                class="full-width text-white"
+                label="Log in"
+                type="submit"
+              />
+            </q-card-actions>
+          </q-form>
         </q-card>
       </div>
     </div>
@@ -55,13 +55,24 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import ApiConsumer from "../ApiConsumer";
 
 export default defineComponent({
   data() {
     return {
-      email: "",
-      password: "",
+      email: "josedanielparra05@outlook.com",
+      password: "123456",
     };
+  },
+  methods: {
+    login() {
+      ApiConsumer.login(this.email, this.password).then((response) => {
+        if (response.accessToken) {
+          this.$store.commit("fillAuthenticationToken", response.accessToken);
+          this.$router.push({ name: "Home" });
+        }
+      });
+    },
   },
 });
 </script>

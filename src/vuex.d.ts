@@ -6,7 +6,8 @@ declare module "@vue/runtime-core" {
   interface State {
     appName: string,
     carSpots: Array<ParkingTicket>,
-    bikeSpots: Array<ParkingTicket>
+    bikeSpots: Array<ParkingTicket>,
+    authenticationToken: string
   }
 
   // provide typings for `this.$store`

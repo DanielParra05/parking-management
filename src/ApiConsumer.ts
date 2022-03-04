@@ -24,7 +24,6 @@ function getParkingTickets(): Promise<ParkingTicket[]> {
 }
 
 function getCarSpots(): ParkingTicket[] {
-  console.log("Get Car Spots")
   var carSpots: ParkingTicket[] = new Array<ParkingTicket>();
   Axios.get<ParkingTicket[]>(`${url}/car-spots`).then(
     (response) => carSpots = response.data
@@ -56,6 +55,15 @@ function removeBikeSpot(parkingTicket: ParkingTicket): void {
   Axios.delete<ParkingTicket>(`${url}/bike-spots/${parkingTicket.id}`);
 }
 
+function login(userEmail: string, userPass: string) {
+  return Axios.post(`${url}/login`, {
+    email: userEmail,
+    password: userPass
+  }).then(
+    (response) => response.data
+  );
+}
+
 export default {
   getVehiclesType,
   createParkingTicket,
@@ -66,5 +74,6 @@ export default {
   pushCarSpot,
   pushBikeSpot,
   removeCarSpot,
-  removeBikeSpot
+  removeBikeSpot,
+  login
 };

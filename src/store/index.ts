@@ -6,7 +6,8 @@ export default createStore({
   state: {
     appName: "Parking Management",
     carSpots: ApiConsumer.getCarSpots(),
-    bikeSpots: ApiConsumer.getBikeSpots()
+    bikeSpots: ApiConsumer.getBikeSpots(),
+    authenticationToken: ""
   },
   mutations: {
     fillCarSpot(state, car: ParkingTicket) {
@@ -30,13 +31,16 @@ export default createStore({
       });
       state.carSpots.splice(index, 1);
       ApiConsumer.removeCarSpot(car);
+    },
+    fillAuthenticationToken(state, token: string) {
+      state.authenticationToken = token;
     }
   },
   actions: {},
-  modules: {},
   getters: {
     getAppName: (state) => state.appName,
     getCarSpots: (state) => state.carSpots,
-    getBikeSpots: (state) => state.bikeSpots
+    getBikeSpots: (state) => state.bikeSpots,
+    isAuthenticated: (state) => (state.authenticationToken != "")
   },
 });

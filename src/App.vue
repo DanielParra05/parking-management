@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <header-component />
+    <header-component v-if="$store.getters.isAuthenticated" />
     <q-page-container>
       <router-view />
     </q-page-container>
