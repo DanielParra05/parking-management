@@ -115,6 +115,9 @@ export default defineComponent({
         parkingTicket.leaveDate = new Date().toString();
         parkingTicket.charge = this.calculateFinalPrice(parkingTicket);
         ApiConsumer.updateParkingTicket(parkingTicket);
+        parkingTicket.vehicleType === "Car"
+          ? this.$store.commit("freeCarSpot", parkingTicket)
+          : this.$store.commit("freeBikeSpot", parkingTicket);
         this.showDialog(
           `The ticket with plate ${
             parkingTicket.plate

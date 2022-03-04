@@ -15,6 +15,21 @@ export default createStore({
     },
     fillBikeSpot(state, bike: ParkingTicket) {
       state.bikeSpots.push(bike);
+      ApiConsumer.pushBikeSpot(bike);
+    },
+    freeBikeSpot(state, bike: ParkingTicket) {
+      var index: number = state.bikeSpots.findIndex(ticket => {
+        return ticket.id === bike.id;
+      });
+      state.bikeSpots.splice(index, 1);
+      ApiConsumer.removeBikeSpot(bike);
+    },
+    freeCarSpot(state, car: ParkingTicket) {
+      var index: number = state.carSpots.findIndex(ticket => {
+        return ticket.id === car.id;
+      });
+      state.carSpots.splice(index, 1);
+      ApiConsumer.removeCarSpot(car);
     }
   },
   actions: {},

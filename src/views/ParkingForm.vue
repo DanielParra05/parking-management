@@ -85,17 +85,47 @@ export default defineComponent({
         : /^([ A-Za-z]{3}[0-9]{2}[ A-Za-z]{1})$/.test(plate);
     },
     createParkingTicket(event: Event) {
+      if (
+        (this.$store.getters.getCarSpots.length < 20 &&
+          this.parkingTicket.vehicleType === "Car") ||
+        (this.$store.getters.getBikeSpots.length < 10 &&
+          this.parkingTicket.vehicleType === "Motorbike")
+      ) {
+        this.assignTicketProperties();
+        ApiConsumer.createParkingTicket(this.parkingTicket as ParkingTicket);
+        this.parkingTicket.vehicleType === "Car"
+          ? this.$store.commit("fillCarSpot", this.parkingTicket)
+          : this.$store.commit("fillBikeSpot", this.parkingTicket);
+
+        this.showDialog(
+          `Parking ticket with plate ${this.parkingTicket.plate} was created.`,
+          "success",
+          "Ticket created!"
+        );
+        this.parkingTicket = {} as ParkingTicket;
+        (event.target as HTMLFormElement).reset();
+      } else {
+        this.showDialog(
+          `There are not available ${this.parkingTicket.vehicleType} places.`,
+          "error",
+          "Error!"
+        );
+      }
+    },
+    showDialog(
+      dialogBodyMessage: string,
+      dialogType: string,
+      dialogTitle: string
+    ) {
+      this.dialogBodyMessage = dialogBodyMessage;
+      this.dialogType = dialogType;
+      this.dialogTitle = dialogTitle;
+      this.dialogVisible = true;
+    },
+    assignTicketProperties() {
       this.parkingTicket.id = Math.floor(Math.random() * 100);
       this.parkingTicket.entryDate = new Date().toString();
       this.parkingTicket.plate = this.parkingTicket.plate.toUpperCase();
-      ApiConsumer.createParkingTicket(this.parkingTicket as ParkingTicket);
-      this.$store.commit("fillCarSpot", this.parkingTicket as ParkingTicket);
-      this.dialogBodyMessage = `Parking ticket with plate ${this.parkingTicket.plate} was created.`;
-      this.dialogType = "success";
-      this.dialogTitle = "Ticket created!";
-      this.dialogVisible = true;
-      this.parkingTicket = {} as ParkingTicket;
-      (event.target as HTMLFormElement).reset();
     },
   },
 });

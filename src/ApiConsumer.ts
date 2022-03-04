@@ -33,8 +33,11 @@ function getCarSpots(): ParkingTicket[] {
 }
 
 function pushCarSpot(parkingTicket: ParkingTicket): void {
-  console.log("pushCarSpot")
   Axios.post<ParkingTicket>(`${url}/car-spots`, parkingTicket);
+}
+
+function removeCarSpot(parkingTicket: ParkingTicket): void {
+  Axios.delete<ParkingTicket>(`${url}/car-spots/${parkingTicket.id}`);
 }
 
 function getBikeSpots(): ParkingTicket[] {
@@ -45,6 +48,14 @@ function getBikeSpots(): ParkingTicket[] {
   return bikeSpots;
 }
 
+function pushBikeSpot(parkingTicket: ParkingTicket): void {
+  Axios.post<ParkingTicket>(`${url}/bike-spots`, parkingTicket);
+}
+
+function removeBikeSpot(parkingTicket: ParkingTicket): void {
+  Axios.delete<ParkingTicket>(`${url}/bike-spots/${parkingTicket.id}`);
+}
+
 export default {
   getVehiclesType,
   createParkingTicket,
@@ -52,5 +63,8 @@ export default {
   updateParkingTicket,
   getCarSpots,
   getBikeSpots,
-  pushCarSpot
+  pushCarSpot,
+  pushBikeSpot,
+  removeCarSpot,
+  removeBikeSpot
 };
