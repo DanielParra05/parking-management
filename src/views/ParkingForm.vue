@@ -10,7 +10,7 @@
       <q-card-actions vertical style="padding-bottom: 1.5%">
         <q-form @submit="createParkingTicket">
           <div class="row">
-            <div class="col-6" style="padding: 1%">
+            <div id="select-vehicle" class="col-6" style="padding: 1%">
               <q-select
                 v-model="parkingTicket.vehicleType"
                 rounded
@@ -57,7 +57,7 @@
 import { defineComponent } from "vue";
 import ApiConsumer from "../ApiConsumer";
 import ParkingTicket from "../types/ParkingTicket";
-import DialogComponent from "@/components/DialogComponent.vue";
+import DialogComponent from "../components/DialogComponent.vue";
 
 export default defineComponent({
   name: "ParkingForm",
