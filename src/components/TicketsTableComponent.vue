@@ -1,5 +1,6 @@
 <template>
   <q-table
+    id="ticketsTable"
     :title="tableTitle"
     :rows="parkingTicketsList"
     :columns="tableColumns"

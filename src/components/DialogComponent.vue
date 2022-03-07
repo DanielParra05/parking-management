@@ -1,5 +1,5 @@
 <template>
-  <q-dialog v-model="alert">
+  <q-dialog v-model="alert" id="dialogComponent">
     <q-card>
       <q-card-section>
         <div class="text-h5">

@@ -1,5 +1,5 @@
 <template>
-  <q-header elevated>
+  <q-header id="header" elevated>
     <q-toolbar>
       <q-avatar>
         <router-link to="/">
