@@ -56,6 +56,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import ApiConsumer from "../ApiConsumer";
+import { Notify } from "quasar";
 
 export default defineComponent({
   data() {
@@ -66,12 +67,19 @@ export default defineComponent({
   },
   methods: {
     login() {
-      ApiConsumer.login(this.email, this.password).then((response) => {
-        if (response.accessToken) {
-          this.$store.commit("fillAuthenticationToken", response.accessToken);
-          this.$router.push({ name: "Home" });
-        }
-      });
+      ApiConsumer.login(this.email, this.password)
+        .then((response) => {
+          if (response.accessToken) {
+            this.$store.commit("fillAuthenticationToken", response.accessToken);
+            this.$router.push({ name: "Home" });
+          }
+        })
+        .catch((error) => {
+          Notify.create({
+            type: "negative",
+            message: error.message,
+          });
+        });
     },
   },
 });

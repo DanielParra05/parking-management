@@ -11,13 +11,14 @@
         </router-link>
       </q-avatar>
       <q-toolbar-title> {{ $store.state.appName }} </q-toolbar-title>
-      <q-btn flat round dense icon="logout" @click="logout" />
+      <q-btn flat round dense icon="logout" @click="logout">
+        <q-tooltip> Logout </q-tooltip></q-btn
+      >
     </q-toolbar>
   </q-header>
 </template>
 
 <script lang="ts">
-import router from "@/router";
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -31,9 +32,6 @@ export default defineComponent({
       this.$store.commit("removeToken");
       this.$router.push("login");
     },
-  },
-  created() {
-    console.log(this.$store.getters.getCurrentPlate);
   },
 });
 </script>

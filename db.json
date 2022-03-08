@@ -1,0 +1,92 @@
+{
+  "vehicle-types": [
+    "Car",
+    "Motorbike"
+  ],
+  "parking-tickets": [
+    {
+      "vehicleType": "Car",
+      "plate": "GKK567",
+      "entryDate": "Tue Mar 08 2022 08:54:24 GMT-0500 (Colombia Standard Time)",
+      "id": 1,
+      "leaveDate": "Tue Mar 08 2022 09:12:02 GMT-0500 (Colombia Standard Time)",
+      "charge": 1000
+    },
+    {
+      "vehicleType": "Car",
+      "plate": "GHH345",
+      "entryDate": "Tue Mar 08 2022 08:55:25 GMT-0500 (Colombia Standard Time)",
+      "id": 2,
+      "leaveDate": "Tue Mar 08 2022 08:56:40 GMT-0500 (Colombia Standard Time)",
+      "charge": 1000
+    },
+    {
+      "vehicleType": "Car",
+      "plate": "ASD234",
+      "entryDate": "Tue Mar 08 2022 08:56:28 GMT-0500 (Colombia Standard Time)",
+      "id": 3,
+      "leaveDate": "Tue Mar 08 2022 09:00:37 GMT-0500 (Colombia Standard Time)",
+      "charge": 1000
+    },
+    {
+      "vehicleType": "Motorbike",
+      "plate": "QWE23G",
+      "entryDate": "Tue Mar 08 2022 08:59:33 GMT-0500 (Colombia Standard Time)",
+      "id": 4
+    },
+    {
+      "vehicleType": "Car",
+      "plate": "SDF234",
+      "entryDate": "Tue Mar 08 2022 09:02:19 GMT-0500 (Colombia Standard Time)",
+      "id": 5
+    },
+    {
+      "vehicleType": "Car",
+      "plate": "KDM345",
+      "entryDate": "Tue Mar 08 2022 09:10:58 GMT-0500 (Colombia Standard Time)",
+      "id": 6
+    },
+    {
+      "vehicleType": "Car",
+      "plate": "SDF123",
+      "entryDate": "Tue Mar 08 2022 09:11:44 GMT-0500 (Colombia Standard Time)",
+      "id": 7
+    }
+  ],
+  "bike-spots": [
+    {
+      "vehicleType": "Motorbike",
+      "plate": "QWE23G",
+      "entryDate": "Tue Mar 08 2022 08:59:33 GMT-0500 (Colombia Standard Time)",
+      "id": 4
+    }
+  ],
+  "car-spots": [
+    {
+      "vehicleType": "Car",
+      "plate": "SDF234",
+      "entryDate": "Tue Mar 08 2022 09:02:19 GMT-0500 (Colombia Standard Time)",
+      "id": 5
+    },
+    {
+      "vehicleType": "Car",
+      "plate": "KDM345",
+      "entryDate": "Tue Mar 08 2022 09:10:58 GMT-0500 (Colombia Standard Time)",
+      "id": 6
+    },
+    {
+      "vehicleType": "Car",
+      "plate": "SDF123",
+      "entryDate": "Tue Mar 08 2022 09:11:44 GMT-0500 (Colombia Standard Time)",
+      "id": 7
+    }
+  ],
+  "login": [],
+  "users": [
+    {
+      "email": "josedanielparra05@outlook.com",
+      "password": "$2a$10$z3JpYxi9/4yzv3KwauH4BeKGxi8RhY9M2MJNGyowT2UdDcERj8f9S",
+      "id": 1
+    }
+  ]
+}

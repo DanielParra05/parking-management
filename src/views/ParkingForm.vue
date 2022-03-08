@@ -22,8 +22,8 @@
             </div>
             <div class="col-6" style="padding: 1%">
               <q-input
-                style="text-transform: uppercase"
                 v-model="parkingTicket.plate"
+                @keyup="parkingTicket.plate.toUpperCase()"
                 rounded
                 outlined
                 label="Vehicle plate"
@@ -91,19 +91,22 @@ export default defineComponent({
         (this.$store.getters.getBikeSpots.length < 10 &&
           this.parkingTicket.vehicleType === "Motorbike")
       ) {
-        this.assignTicketProperties();
-        ApiConsumer.createParkingTicket(this.parkingTicket as ParkingTicket);
-        this.parkingTicket.vehicleType === "Car"
-          ? this.$store.commit("fillCarSpot", this.parkingTicket)
-          : this.$store.commit("fillBikeSpot", this.parkingTicket);
-
-        this.showDialog(
-          `Parking ticket with plate ${this.parkingTicket.plate} was created.`,
-          "success",
-          "Ticket created!"
-        );
-        this.parkingTicket = {} as ParkingTicket;
-        (event.target as HTMLFormElement).reset();
+        this.parkingTicket.entryDate = new Date().toString();
+        ApiConsumer.createParkingTicket(
+          this.parkingTicket as ParkingTicket
+        ).then((parkingTicket) => {
+          this.parkingTicket = parkingTicket;
+          this.parkingTicket.vehicleType === "Car"
+            ? this.$store.commit("fillCarSpot", this.parkingTicket)
+            : this.$store.commit("fillBikeSpot", this.parkingTicket);
+          this.showDialog(
+            `Parking ticket with plate ${this.parkingTicket.plate} was created.`,
+            "success",
+            "Ticket created!"
+          );
+          this.parkingTicket = {} as ParkingTicket;
+          (event.target as HTMLFormElement).reset();
+        });
       } else {
         this.showDialog(
           `There are not available ${this.parkingTicket.vehicleType} places.`,
@@ -121,11 +124,6 @@ export default defineComponent({
       this.dialogType = dialogType;
       this.dialogTitle = dialogTitle;
       this.dialogVisible = true;
-    },
-    assignTicketProperties() {
-      this.parkingTicket.id = Math.floor(Math.random() * 100);
-      this.parkingTicket.entryDate = new Date().toString();
-      this.parkingTicket.plate = this.parkingTicket.plate.toUpperCase();
     },
   },
 });

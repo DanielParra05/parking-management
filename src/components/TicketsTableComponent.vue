@@ -169,7 +169,7 @@ export default defineComponent({
       priceDay: number,
       accumulatedCharge: number
     ): number {
-      var totalDays: number = 0;
+      var totalDays = 0;
       if (hours >= 24) {
         totalDays = Math.floor(hours / 24);
         accumulatedCharge += totalDays * priceDay;

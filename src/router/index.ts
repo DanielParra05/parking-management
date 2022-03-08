@@ -9,19 +9,19 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     name: "Home",
     component: Home,
-    beforeEnter: [authGuard]
+    beforeEnter: [authGuard],
   },
   {
     path: "/parking-form",
     name: "parking-form",
     component: ParkingForm,
-    beforeEnter: [authGuard]
+    beforeEnter: [authGuard],
   },
   {
     path: "/login",
     name: "login",
     component: Login,
-  }
+  },
 ];
 
 const router = createRouter({
