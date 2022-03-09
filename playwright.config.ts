@@ -6,8 +6,7 @@ const config: PlaywrightTestConfig = {
   testDir: 'src/tests/e2e/',
   use: {
     // Configure browser and context here
-    headless: false,
-    browserName: 'firefox',
+    headless: false
   }
 }
 export default config
