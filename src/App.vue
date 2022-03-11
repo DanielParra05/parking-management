@@ -16,5 +16,9 @@ export default defineComponent({
   components: {
     HeaderComponent,
   },
+  mounted() {
+    this.$store.dispatch("fetchBikeSpots");
+    this.$store.dispatch("fetchCarSpots");
+  },
 });
 </script>

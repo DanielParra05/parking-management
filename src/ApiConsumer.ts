@@ -31,12 +31,10 @@ function getParkingTickets(): Promise<ParkingTicket[]> {
   );
 }
 
-function getCarSpots(): ParkingTicket[] {
-  let carSpots: ParkingTicket[] = new Array<ParkingTicket>();
-  Axios.get<ParkingTicket[]>(`${url}/car-spots`).then(
-    (response) => (carSpots = response.data)
+function getCarSpots(): Promise<ParkingTicket[]> {
+  return Axios.get<ParkingTicket[]>(`${url}/car-spots`).then(
+    (response) => response.data
   );
-  return carSpots;
 }
 
 function pushCarSpot(parkingTicket: ParkingTicket): void {
@@ -47,12 +45,10 @@ function removeCarSpot(parkingTicket: ParkingTicket): void {
   Axios.delete<ParkingTicket>(`${url}/car-spots/${parkingTicket.id}`);
 }
 
-function getBikeSpots(): ParkingTicket[] {
-  let bikeSpots: ParkingTicket[] = new Array<ParkingTicket>();
-  Axios.get<ParkingTicket[]>(`${url}/bike-spots`).then(
-    (response) => (bikeSpots = response.data)
+function getBikeSpots(): Promise<ParkingTicket[]> {
+  return Axios.get<ParkingTicket[]>(`${url}/bike-spots`).then(
+    (response) => response.data
   );
-  return bikeSpots;
 }
 
 function pushBikeSpot(parkingTicket: ParkingTicket): void {
