@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import ParkingForm from "../views/ParkingForm.vue";
 import Login from "../views/Login.vue";
 import { authGuard } from "./guard";
+import CurrentOcupation from "../views/CurrentOcupation.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -15,6 +16,12 @@ const routes: Array<RouteRecordRaw> = [
     path: "/parking-form",
     name: "parking-form",
     component: ParkingForm,
+    beforeEnter: [authGuard],
+  },
+  {
+    path: "/current-ocupation",
+    name: "current-ocupation",
+    component: CurrentOcupation,
     beforeEnter: [authGuard],
   },
   {

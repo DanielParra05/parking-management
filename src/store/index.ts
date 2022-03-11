@@ -5,8 +5,8 @@ import ParkingTicket from "../types/ParkingTicket";
 export default createStore({
   state: {
     appName: "Parking Management",
-    carSpots: ApiConsumer.getCarSpots(),
-    bikeSpots: ApiConsumer.getBikeSpots(),
+    carSpots: new Array<ParkingTicket>(),
+    bikeSpots: new Array<ParkingTicket>(),
     authenticationToken: "",
   },
   mutations: {
@@ -38,8 +38,25 @@ export default createStore({
     removeToken(state) {
       state.authenticationToken = "";
     },
+    setCarSpots(state, carSpots: ParkingTicket[]) {
+      state.carSpots = carSpots;
+    },
+    setBikeSpots(state, bikeSpots: ParkingTicket[]) {
+      state.bikeSpots = bikeSpots;
+    },
   },
-  actions: {},
+  actions: {
+    fetchBikeSpots({ commit }) {
+      ApiConsumer.getBikeSpots().then((response) =>
+        commit("setBikeSpots", response)
+      );
+    },
+    fetchCarSpots({ commit }) {
+      ApiConsumer.getCarSpots().then((response) =>
+        commit("setCarSpots", response)
+      );
+    },
+  },
   getters: {
     getAppName: (state) => state.appName,
     getCarSpots: (state) => state.carSpots,
