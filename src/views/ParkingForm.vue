@@ -23,7 +23,6 @@
             <div class="col-6" style="padding: 1%">
               <q-input
                 v-model="parkingTicket.plate"
-                @keyup="parkingTicket.plate.toUpperCase()"
                 rounded
                 outlined
                 label="Vehicle plate"
@@ -124,6 +123,12 @@ export default defineComponent({
       this.dialogType = dialogType;
       this.dialogTitle = dialogTitle;
       this.dialogVisible = true;
+    },
+  },
+  watch: {
+    "parkingTicket.plate": function (newVal: string) {
+      this.parkingTicket.plate =
+        newVal !== undefined ? newVal.toUpperCase() : "";
     },
   },
 });

@@ -37,7 +37,13 @@
     </template>
     <template v-slot:body-cell-leaveDate="props">
       <q-td :props="props">
-        {{ props.value ? props.value : "--" }}
+        {{ props.value ? formatDate(props.value) : "--" }}
+      </q-td>
+    </template>
+
+    <template v-slot:body-cell-entryDate="props">
+      <q-td :props="props">
+        {{ formatDate(props.value) }}
       </q-td>
     </template>
   </q-table>
@@ -204,6 +210,9 @@ export default defineComponent({
         parseInt(id)
       );
       return parkingTicket && parkingTicket.charge && parkingTicket.charge > 0;
+    },
+    formatDate(date: string): string {
+      return date.replace("GMT-0500 (Colombia Standard Time)", "");
     },
   },
 });
