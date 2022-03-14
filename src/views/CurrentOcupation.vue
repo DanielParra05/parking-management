@@ -68,7 +68,7 @@ import useCloseTicket from "../components/Logic/UseCloseTicket";
 import DialogComponent from "../components/DialogComponent.vue";
 
 const store = useStore();
-const { closeTicket } = useCloseTicket();
+const closeTicket = useCloseTicket();
 const activeCarParkingTickets: ParkingTicket[] = reactive(
   store.getters.getCarSpots
 );

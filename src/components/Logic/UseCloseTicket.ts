@@ -12,7 +12,7 @@ const prices: Map<string, number> = new Map<string, number>([
 /**
  * Close a ticket and returns an amount to charge
  */
-function useCloseTicket() {
+function useCloseTicket(): (parkingTicket: ParkingTicket) => void {
   const store = useStore();
   function closeTicket(parkingTicket: ParkingTicket) {
     parkingTicket.leaveDate = new Date().toString();
@@ -22,9 +22,7 @@ function useCloseTicket() {
       ? store.commit("freeCarSpot", parkingTicket)
       : store.commit("freeBikeSpot", parkingTicket);
   }
-  return {
-    closeTicket,
-  };
+  return closeTicket;
 }
 
 function calculateFinalPrice(parkingTicket: ParkingTicket): number {

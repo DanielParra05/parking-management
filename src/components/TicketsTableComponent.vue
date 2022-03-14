@@ -58,7 +58,7 @@
 </template>
 
 <script lang="ts" setup>
-import { PropType, ref } from "vue";
+import { PropType, ref, defineProps } from "vue";
 import ParkingTicket from "../types/ParkingTicket";
 import DialogComponent from "./DialogComponent.vue";
 import useCloseTicket from "./Logic/UseCloseTicket";
@@ -71,7 +71,7 @@ const dialogVisible = ref<boolean>(false);
 const dialogBodyMessage = ref<string>("");
 const dialogType = ref<string>("");
 const dialogTitle = ref<string>("");
-const tableColumns: any[] = [
+const tableColumns = [
   {
     name: "vehicleType",
     label: "Vehicle Type",
@@ -99,7 +99,7 @@ const tableColumns: any[] = [
   { name: "charge", label: "Charged 💵", field: "charge", align: "left" },
   { name: "actions", label: "Actions", align: "center", field: "id" },
 ];
-const { closeTicket } = useCloseTicket();
+const closeTicket = useCloseTicket();
 
 function generateFinalTicket(id: string) {
   const parkingTicket: ParkingTicket | undefined = getByIdFromTickets(

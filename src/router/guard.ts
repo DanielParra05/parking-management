@@ -5,7 +5,7 @@ export const authGuard = (
   to: RouteLocationNormalized,
   from: RouteLocationNormalized,
   next: NavigationGuardNext
-) => {
+): void => {
   const isAuthenticated = store.getters.isAuthenticated;
   if (isAuthenticated) {
     next();

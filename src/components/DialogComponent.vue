@@ -1,5 +1,5 @@
 <template>
-  <q-dialog v-model="alert" id="dialogComponent">
+  <q-dialog v-model="showDialog" id="dialogComponent">
     <q-card>
       <q-card-section>
         <div class="text-h5">
@@ -41,11 +41,18 @@ export default defineComponent({
 
   props: { title: String, message: String, alert: Boolean, type: String },
   data() {
-    return {};
+    return {
+      showDialog: false,
+    };
   },
   methods: {
     okButtonClick() {
       this.$emit("ok-click");
+    },
+  },
+  watch: {
+    alert() {
+      this.showDialog = this.$props.alert;
     },
   },
 });
